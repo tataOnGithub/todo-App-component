@@ -1,0 +1,20 @@
+<section id="container">
+  <div class="selector">
+    <input [(ngModel)]="inputValue" type="text">
+    <select name="" id="" [(ngModel)]="selectedValue">
+      <option value="">select</option>
+      <option value="" *ngFor="let option of options" [value]="option">{{ option }}</option>
+    </select>
+    <button class="add-button" (click)="addTask()">Add</button>
+  </div>
+  <div class="cards-container">
+    <div class="card" *ngFor="let card of cards">
+      <div class="card-header">
+        <h2 id="title-{{card.id}}">{{ card.state }}</h2>
+      </div>
+      <app-card [cards]="cards" [card]="card" [inputValue]="inputValue" [selectedValue]="selectedValue">
+
+      </app-card>
+    </div>
+  </div>
+</section>
